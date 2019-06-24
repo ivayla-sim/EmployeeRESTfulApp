@@ -9,7 +9,7 @@ public class Employee {
 	
 	@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 	
 	//@Column(nullable = false)
 	private String firstName;
@@ -20,7 +20,14 @@ public class Employee {
 	private String dateOfBirth;
 	
 	private String[] addresses;
-
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public String getFirstName() {
         return firstName;
