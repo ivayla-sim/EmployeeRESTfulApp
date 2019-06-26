@@ -17,7 +17,7 @@ import org.springframework.http.*;
 
 
 @RestController
-@RequestMapping(value = "/employees", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/employees", produces = MediaType.APPLICATION_JSON_VALUE/*, consumes = MediaType.APPLICATION_JSON_VALUE*/)
 public class EmployeeController {
 	
 	@Autowired
@@ -30,25 +30,6 @@ public class EmployeeController {
 	
 	}
 	
-	//@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	//@ResponseStatus(HttpStatus.OK)
-	//public ResponseEntity<EmployeeDTO> getEmployee(@PathVariable(value = "id") int id) 
-		//throws ResourceNotFoundException
-	//{
-		//try {
-			//EmployeeDTO returnedEmployee = employeeService.getEmployee(id);
-			//return ResponseEntity.ok().body(returnedEmployee);
-			//return new ResponseEntity<>(employeeService.getEmployee(id), HttpStatus.OK);
-		//}
-		
-		//catch (ResourceNotFoundException ex) {
-			//ex = new ResourceNotFoundException("There is no employee with id = " + id);
-			//return ResponseEntity.body(ex);
-		//}
-		
-		//return new ResponseEntity<>(employeeService.getEmployee(id), HttpStatus.OK);
-	//}
-	
 	
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
@@ -57,9 +38,19 @@ public class EmployeeController {
 	}
 	
 	
-	//@PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	//@ResponseStatus(HttpStatus.OK)
-	//public ResponseEntity<EmployeeDTO> putEmployee()
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	public ResponseEntity<Integer> createEmployee(@RequestBody EmployeeCDTO employeeCDTO) {
+		return new ResponseEntity<>(employeeService.createEmployee(employeeCDTO), HttpStatus.CREATED);
+	}
+	
+	
+	@PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<EmployeeDTO> updateEmployee(@PathVariable(value = "id") int id, 
+														@RequestBody EmployeeUDTO employeeUDTO) {
+		return new ResponseEntity<>(employeeService.updateEmployee(id, employeeUDTO), HttpStatus.OK);
+	}
 	
 	
 	
