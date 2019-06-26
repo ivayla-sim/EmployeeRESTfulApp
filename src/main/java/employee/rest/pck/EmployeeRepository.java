@@ -9,6 +9,6 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "employees", path = "employees")
 public interface EmployeeRepository extends CrudRepository<Employee, Integer>{
 	
-	List<Employee> findByFistName(@Param("firstName") String firstName);
+	List<Employee> findByFirstName(@Param("firstName") String firstName);
 
 }

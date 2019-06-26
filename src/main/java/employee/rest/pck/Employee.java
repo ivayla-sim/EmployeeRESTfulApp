@@ -21,6 +21,8 @@ public class Employee {
 	
 	private String[] addresses;
 	
+	//private String addresses;
+	
 	
 	public int getId() {
 		return id;
@@ -55,6 +57,18 @@ public class Employee {
     }
     public void setAddresses(String[] addresses) {
         this.addresses = addresses;
+    }
+    
+    
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", addresses='" + addresses + '\'' +
+                '}';
     }
 	
 	
