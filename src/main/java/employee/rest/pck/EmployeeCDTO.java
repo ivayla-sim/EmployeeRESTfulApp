@@ -1,5 +1,7 @@
 package employee.rest.pck;
 
+import java.util.List;
+
 public class EmployeeCDTO {
 	
 	private int id;
@@ -10,7 +12,8 @@ public class EmployeeCDTO {
 	
 	private String dateOfBirth;
 	
-	private String[] addresses;
+	private List<Addresses> addresses;
+	
 	
 	
 	public int getId() {
@@ -25,9 +28,8 @@ public class EmployeeCDTO {
 	public String getDateOfBirth() {
         return dateOfBirth;
     }
-	public String[] getAdresses() {
+	public List<Addresses> getAddresses() {
 		return addresses;
 	}
-	      
-
+	
 }

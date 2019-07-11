@@ -1,6 +1,7 @@
 package employee.rest.pck;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -46,11 +47,13 @@ public class EmployeeController {
 	}
 	
 	
-	@PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "/{id}/{zipCode}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<EmployeeDTO> updateEmployee(@PathVariable(value = "id") int id, 
-														@RequestBody EmployeeUDTO employeeUDTO) {
-		return new ResponseEntity<>(employeeService.updateEmployee(id, employeeUDTO), HttpStatus.OK);
+	public ResponseEntity<?> updateEmployee(@PathVariable(value = "id") int id, 
+														@PathVariable(value = "zipCode") int zipCode,
+														@RequestBody EmployeeUDTO employeeUDTO,
+														@RequestBody AddressesDTO addressesDTO) {
+		return new ResponseEntity<>(employeeService.updateEmployee(id, employeeUDTO, zipCode, addressesDTO), HttpStatus.OK);
 	}
 	
 	

@@ -1,16 +1,20 @@
 package employee.rest.pck;
 
+import java.util.List;
+
 public class EmployeeUDTO {
 	
 	private String lastName;
+
+	private List<Addresses> addresses;
 	
-	private String[] addresses;
+	
 	
 	public String getLastName() {
         return lastName;
     }
 	
-	public String[] getAdresses() {
+	public List<Addresses> getAddresses() {
 		return addresses;
 	}
 

@@ -1,27 +1,38 @@
 package employee.rest.pck;
 
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
+import java.util.List;
+import java.io.Serializable;
+import java.util.Arrays;
+
 import javax.persistence.*;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+import org.springframework.data.rest.core.annotation.RestResource;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-public class Employee {
+@RestResource(rel="employees", path="employee")
+public class Employee implements Serializable {
 	
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	//@Column(nullable = false)
 	private String firstName;
 	
-	//@Column(nullable = false)
 	private String lastName;
 	
 	private String dateOfBirth;
 	
-	private String[] addresses;
+	@OneToMany(targetEntity = Addresses.class, mappedBy="employee", fetch = FetchType.LAZY)
+	@NotFound(action = NotFoundAction.IGNORE)
+	private List<Addresses> addresses;
 	
-	//private String addresses;
+	
+	
+	public Employee() {}
+	
 	
 	
 	public int getId() {
@@ -52,12 +63,14 @@ public class Employee {
         this.dateOfBirth = dateOfBirth;
     }
     
-    public String[] getAdresses() {
-        return addresses;
+    public List<Addresses> getAddresses() {
+    	return addresses;
     }
-    public void setAddresses(String[] addresses) {
-        this.addresses = addresses;
+    
+    public void setAddresses(List<Addresses> addresses) {
+    	this.addresses = addresses;
     }
+    
     
     
     @Override
