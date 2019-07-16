@@ -20,45 +20,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SpringBootApplication
 public class EmployeeApplication {
 	
-	//
-	/*
-	private static org.hibernate.SessionFactory sessionFactory;
-
-	  public static SessionFactory getSessionFactory() {
-	    if (sessionFactory == null) {
-	      initSessionFactory();
-	    }
-	    return sessionFactory;
-	  }
-
-	  private static synchronized void initSessionFactory() {
-	    sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
-
-	  }
-	  
-	  
-	  private static SessionFactory sessionFactory;
-	   
-	   private InitSessionFactory() []
-
-	  public static Session getSession() {
-	    return getSessionFactory().openSession();
-	  }
-	  */
-	  
-//
 	
 	public static void main(String[] args ) {
 		
-		//
-		/*
-		Session session = getSession();
-		Transaction transaction = session.beginTransaction();
-		*/
-		//
 		SpringApplication.run(EmployeeApplication.class, args);
 		
-		//transaction.commit();
 	}
 
 }

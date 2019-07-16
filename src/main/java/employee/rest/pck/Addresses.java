@@ -12,9 +12,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 //@Table( name = "ADDRESSES", 
 	//uniqueConstraints =  @UniqueConstraint( columnNames = { "EMPLOYEE_ID", "ZIP_CODE" } ) )
+@IdClass(AddressesId.class)
 public class Addresses implements Serializable {
 	
-	@Id
+	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int addressId;
 	
@@ -24,6 +25,7 @@ public class Addresses implements Serializable {
 	
 	@JsonIgnore
 	//@Column(name = "employee_id")
+	@Id
 	private int employeeId;
 	
 	private String country;
@@ -35,6 +37,7 @@ public class Addresses implements Serializable {
 	private String street;
 	
 	//@Column(name = "zip_code")
+	@Id
 	private int zipCode;
 	
 	

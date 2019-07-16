@@ -49,11 +49,11 @@ public class EmployeeController {
 	
 	@PutMapping(value = "/{id}/{zipCode}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> updateEmployee(@PathVariable(value = "id") int id, 
+	public ResponseEntity<EmployeeDTO> updateEmployee(@PathVariable(value = "id") int id, 
 														@PathVariable(value = "zipCode") int zipCode,
-														@RequestBody EmployeeUDTO employeeUDTO,
-														@RequestBody AddressesDTO addressesDTO) {
-		return new ResponseEntity<>(employeeService.updateEmployee(id, employeeUDTO, zipCode, addressesDTO), HttpStatus.OK);
+														@RequestBody EmployeeUDTO employeeUDTO//,
+														/*@RequestBody AddressesDTO addressesDTO*/) {
+		return new ResponseEntity<>(employeeService.updateEmployee(id, employeeUDTO, zipCode/*, addressesDTO*/), HttpStatus.OK);
 	}
 	
 	
