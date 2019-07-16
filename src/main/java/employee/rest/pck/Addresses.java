@@ -9,10 +9,14 @@ import org.hibernate.annotations.NotFoundAction;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 //@Table( name = "ADDRESSES", 
 	//uniqueConstraints =  @UniqueConstraint( columnNames = { "EMPLOYEE_ID", "ZIP_CODE" } ) )
 @IdClass(AddressesId.class)
+@ApiModel(description = "Employee address info")
 public class Addresses implements Serializable {
 	
 	
@@ -28,16 +32,21 @@ public class Addresses implements Serializable {
 	@Id
 	private int employeeId;
 	
+	@ApiModelProperty(notes = "Employee country", example = "ABC")
 	private String country;
 	
+	@ApiModelProperty(notes = "Employee city", example = "ABC")
 	private String city;
 	
+	@ApiModelProperty(notes = "Employee village type", example = "ABC")
 	private String villageType;
 	
+	@ApiModelProperty(notes = "Employee street", example = "ABC")
 	private String street;
 	
 	//@Column(name = "zip_code")
 	@Id
+	@ApiModelProperty(notes = "Employee zip code", example = "111")
 	private int zipCode;
 	
 	
