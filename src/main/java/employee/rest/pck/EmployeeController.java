@@ -51,7 +51,7 @@ public class EmployeeController {
 	@ApiOperation(value = "Add an employee")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Integer> createEmployee(@RequestBody EmployeeCDTO employeeCDTO) {
+	public ResponseEntity<EmployeeDTO> createEmployee(@RequestBody EmployeeCDTO employeeCDTO) {
 		return new ResponseEntity<>(employeeService.createEmployee(employeeCDTO), HttpStatus.CREATED);
 	}
 	

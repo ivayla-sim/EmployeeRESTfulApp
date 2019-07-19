@@ -14,7 +14,12 @@ public class EmployeeUDTO {
 	@ApiModelProperty(notes = "Employee address list", example = "[AddLine1,AddLine2,AddLine3,AddLine4]")
 	private List<Addresses> addresses;
 	
+	public EmployeeUDTO() {};
 	
+	public EmployeeUDTO(String lastName, List<Addresses> addresses) {
+		this.lastName = lastName;
+		this.addresses = addresses;
+	}
 	
 	public String getLastName() {
         return lastName;

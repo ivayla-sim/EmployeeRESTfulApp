@@ -42,6 +42,14 @@ public class Employee implements Serializable {
 	
 	public Employee() {}
 	
+	public Employee(int id, String firstName, String lastName, String dateOfBirth, List <Addresses> addresses) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.addresses = addresses;
+	}
+	
 	
 	
 	public int getId() {

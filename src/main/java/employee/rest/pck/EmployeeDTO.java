@@ -21,6 +21,7 @@ public class EmployeeDTO {
 	private List<Addresses> addresses;
 	
 	
+	public EmployeeDTO() {};
 	
 	public EmployeeDTO(int id, String firstName, String lastName, List<Addresses> addresses) {
 		this.id = id;

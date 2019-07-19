@@ -23,6 +23,16 @@ public class EmployeeCDTO {
 	@ApiModelProperty(notes = "Employee address list", example = "[AddLine1,AddLine2,AddLine3,AddLine4]")
 	private List<Addresses> addresses;
 	
+	public EmployeeCDTO() {};
+	
+	public EmployeeCDTO(int id, String firstName, String lastName, String dateOfBirth, List<Addresses> addresses) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.addresses = addresses;
+	}
+	
 	
 	
 	public int getId() {

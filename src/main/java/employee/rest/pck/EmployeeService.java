@@ -37,6 +37,7 @@ public class EmployeeService {
 	}
 	
 	//POST new employee
+	/*
 	public int createEmployee(EmployeeCDTO employeeCDTO) {
 		
 		Employee newEmp = new Employee();
@@ -55,6 +56,30 @@ public class EmployeeService {
 		
 		
 		return 1;
+		//return "Employee is successfully POSTed";
+
+	}*/
+	
+
+public EmployeeDTO createEmployee(EmployeeCDTO employeeCDTO) {
+		
+		Employee newEmp = new Employee();
+		
+		newEmp.setId(employeeCDTO.getId());
+		newEmp.setFirstName(employeeCDTO.getFirstName());
+		newEmp.setLastName(employeeCDTO.getLastName());
+		newEmp.setDateOfBirth(employeeCDTO.getDateOfBirth());
+		newEmp.setAddresses(employeeCDTO.getAddresses());
+		
+		employeeRepository.save(newEmp);
+		
+		
+		
+		substrAddressesAttr(employeeCDTO.getId(), null, employeeCDTO);
+		
+		
+		return new EmployeeDTO(employeeCDTO.getId(), employeeCDTO.getFirstName(), employeeCDTO.getLastName(), employeeCDTO.getAddresses());
+		
 
 	}
 	

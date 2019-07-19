@@ -11,7 +11,7 @@
   <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.4.RELEASE</version>
+        <version>2.1.6.RELEASE</version>
         <relativePath/>
     </parent>
     
@@ -57,6 +57,30 @@
     		<artifactId>springfox-swagger-ui</artifactId>
     		<version>2.9.2</version>
 		</dependency>
+		
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-test</artifactId>
+    		<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>junit</groupId>
+    		<artifactId>junit</artifactId>
+    		<!--  
+    		<version>4.12</version> 
+    		-->
+    		<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+        	<!-- 
+            <version>3.0.0</version>
+       		-->
+            <scope>test</scope>
+        </dependency>
 
   </dependencies>
   <build>
@@ -93,6 +117,7 @@
             <id>dev</id>
             <properties>
                 <activatedProperties>dev</activatedProperties>
+                <skipTests>true</skipTests>
             </properties>
             <!--  
             <activation>
@@ -104,12 +129,14 @@
             <id>test</id>
             <properties>
                 <activatedProperties>test</activatedProperties>
+                <skipUnitTests>false</skipUnitTests>
             </properties>
         </profile>
         <profile>
             <id>uat</id>
             <properties>
                 <activatedProperties>uat</activatedProperties>
+                <skipUnitTests>false</skipUnitTests>
             </properties>
         </profile>
     </profiles>
